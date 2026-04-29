@@ -1,0 +1,35 @@
+# 依赖
+node_modules/
+
+# 构建产物
+dist/
+dist-ssr/
+
+# TypeScript 编译缓存
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+tsconfig.node.tsbuildinfo
+
+# Vite 缓存
+.vite/
+
+# 本地环境变量
+.env
+.env.local
+.env.*.local
+
+# 编辑器
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 日志
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# pnpm
+.pnpm-store/
