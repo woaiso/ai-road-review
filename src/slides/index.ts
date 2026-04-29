@@ -49,7 +49,7 @@ export const slides: SlideMeta[] = [
   { id: "ch10-1", title: "Skill / 技能：把「做法」沉淀成可复制的流程标准", chapter: "第十章", steps: 5, component: Slide17Ch101SkillOverview },
   { id: "ch10-5", title: "分工边界：流程封装 × 能力接入", chapter: "第十章", steps: 4, component: Slide18Ch105SkillVsMcp },
   { id: "ch11-1", title: "Harness：约束智能体，放行业务结果", chapter: "第十一章", steps: 6, component: Slide19Ch111HarnessOverview },
-  { id: "ch12-1", title: "Hermes 案例解剖：从方法论到工程落地", chapter: "第十二章", steps: 5, component: Slide20Ch121WhyHermes },
+  { id: "ch12-1", title: "拼图成塔：前章能力如何组装成 Hermes", chapter: "第十二章", steps: 8, component: Slide20Ch121WhyHermes },
   { id: "ch13-1", title: "三个阶段 · 三个洞察 · 三条实践", chapter: "第十三章", steps: 3, component: Slide21Ch131ResultLoop },
   { id: "postscript", title: "写在最后：此刻，是分水岭", chapter: "尾声", dark: true, steps: 4, component: Slide22Postscript },
 ];
