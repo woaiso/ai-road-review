@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+ * Anthropic 品牌主题：将 shadcn 默认 CSS 变量改写为奶油 + 暖橙
+ * 颜色采用 HSL 格式，保持与 shadcn 工具链兼容
+ * ============================================================ */
+@layer base {
+  :root {
+    /* 主背景：奶油色 #faf9f5 */
+    --background: 60 33% 97%;
+    --foreground: 60 4% 8%;
+
+    /* 卡片：略偏暖白 */
+    --card: 48 25% 96%;
+    --card-foreground: 60 4% 8%;
+
+    --popover: 48 25% 98%;
+    --popover-foreground: 60 4% 8%;
+
+    /* 主强调：Anthropic 橙 #d97757 */
+    --primary: 18 60% 60%;
+    --primary-foreground: 60 33% 97%;
+
+    /* 次强调：暖灰 */
+    --secondary: 45 12% 88%;
+    --secondary-foreground: 60 4% 12%;
+
+    /* Muted：浅米灰 */
+    --muted: 45 18% 92%;
+    --muted-foreground: 30 6% 38%;
+
+    /* Accent：辅助蓝 #6a9bcc */
+    --accent: 211 45% 75%;
+    --accent-foreground: 60 4% 8%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 60 33% 97%;
+
+    --border: 45 8% 82%;
+    --input: 45 8% 82%;
+    --ring: 18 60% 60%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* 章节封面页或聚焦演示时切换深色模式 */
+    --background: 60 4% 8%;
+    --foreground: 60 33% 97%;
+
+    --card: 60 4% 12%;
+    --card-foreground: 60 33% 97%;
+
+    --popover: 60 4% 12%;
+    --popover-foreground: 60 33% 97%;
+
+    --primary: 18 70% 65%;
+    --primary-foreground: 60 4% 8%;
+
+    --secondary: 60 4% 18%;
+    --secondary-foreground: 60 33% 97%;
+
+    --muted: 60 4% 18%;
+    --muted-foreground: 45 8% 65%;
+
+    --accent: 211 45% 55%;
+    --accent-foreground: 60 33% 97%;
+
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 60 33% 97%;
+
+    --border: 60 4% 22%;
+    --input: 60 4% 22%;
+    --ring: 18 70% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  /* root font-size 跟视口宽度联动：1920px 视口下 1rem = 16px
+     这样所有用 rem 的 Tailwind 标准类（spacing/font-size 等）天然响应式 */
+  html {
+    font-size: 0.8333vw; /* = 100vw * (16/1920) */
+    height: 100%;
+    width: 100%;
+  }
+  body,
+  #root {
+    @apply h-full w-full;
+  }
+  body {
+    @apply bg-background text-foreground font-serif antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
+    overflow: hidden;
+  }
+  ::selection {
+    @apply bg-brand-orange/30 text-foreground;
+  }
+}
+
+/* ============================================================
+ * PPT 画布：100vw × 100vh，所有 px 由 PostCSS 编译为 vw（基准 1920）
+ * 没有任何 transform: scale，浏览器原生 CSS 响应式
+ * ============================================================ */
+.deck-canvas {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* ============================================================
+ * 打印样式：浏览器导出 PDF 时每页一张幻灯片
+ * ============================================================ */
+@media print {
+  body {
+    overflow: visible !important;
+    background: white !important;
+  }
+  .deck-canvas {
+    transform: none !important;
+    width: 100% !important;
+    height: 100vh !important;
+    page-break-after: always;
+  }
+  .deck-chrome {
+    display: none !important;
+  }
+}
+
+/* ============================================================
+ * 工具类：渐变文本、装饰文本下划线（用于关键术语）
+ * ============================================================ */
+@layer utilities {
+  .text-gradient-brand {
+    background-image: linear-gradient(120deg, #d97757 0%, #cc6644 60%, #a8513d 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .underline-brand {
+    background-image: linear-gradient(transparent 65%, rgba(217, 119, 87, 0.35) 65%);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  .grid-paper {
+    background-image: linear-gradient(rgba(20, 20, 19, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(20, 20, 19, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
