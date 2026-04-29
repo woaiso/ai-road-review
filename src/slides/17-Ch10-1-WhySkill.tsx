@@ -56,10 +56,25 @@ export default function Slide29Ch101SkillOverview() {
       eyebrow="第十章 · Agent Skills"
       title="Skill：为智能体赋予全新能力与专业技能的标准化方式"
     >
-      <div className="grid h-full grid-cols-[1.05fr_1fr] gap-5">
+      <div className="flex h-full flex-col gap-3">
+        <Reveal show={step >= 0} variant="rise">
+          <div className="rounded-2xl border border-brand-orange/25 bg-brand-orange/5 px-4 py-2 shadow-sm">
+            <div className="flex items-center gap-2 font-display text-[12px] text-ink/80">
+              <span className="rounded-md bg-white/75 px-2 py-0.5 font-semibold text-ink">Anthropic · 2025 年 10 月推出</span>
+              <span className="text-ink/35">|</span>
+              <span>2025 年 9 月 · Claude Sonnet 4.5</span>
+              <span className="text-ink/35">|</span>
+              <span>2025 年 10 月 · Claude Haiku 4.5</span>
+              <span className="text-ink/35">|</span>
+              <span>2025 年 11 月 · Claude Opus 4.5</span>
+            </div>
+          </div>
+        </Reveal>
 
-        {/* ══ 左列：Why Skill → 三要素 → 组织收益 ══ */}
-        <div className="flex flex-col gap-3">
+        <div className="grid flex-1 grid-cols-[1.05fr_1fr] gap-5">
+
+          {/* ══ 左列：Why Skill → 三要素 → 组织收益 ══ */}
+          <div className="flex flex-col gap-3">
 
           {/* Step 1 · Why Skill：定义 + RAG vs Skill */}
           <Reveal show={step >= 1} variant="rise">
@@ -152,10 +167,10 @@ export default function Slide29Ch101SkillOverview() {
               </div>
             </div>
           </Reveal>
-        </div>
+          </div>
 
-        {/* ══ 右列：示例 → 生命周期 → 典型资产 ══ */}
-        <div className="flex flex-col gap-3">
+          {/* ══ 右列：示例 → 生命周期 → 典型资产 ══ */}
+          <div className="flex flex-col gap-3">
 
           {/* Step 3 · CodeBlock 代码 Review Skill 示例 */}
           <Reveal show={step >= 3} variant="slide-left">
@@ -193,6 +208,7 @@ export default function Slide29Ch101SkillOverview() {
             </div>
           </Reveal>
 
+          </div>
         </div>
       </div>
     </Slide>

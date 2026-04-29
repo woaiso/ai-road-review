@@ -135,10 +135,33 @@ export default function Slide20Ch81McpOverview() {
       eyebrow="第八章 · MCP（Model Context Protocol）"
       title="统一契约：从碎片化接入到协议化生态"
     >
-      <div className="grid h-full grid-cols-[1.15fr_1fr] gap-5">
+      <div className="flex h-full flex-col gap-3">
+        <Reveal show={step >= 0} variant="rise">
+          <div className="rounded-2xl border border-brand-orange/25 bg-brand-orange/5 px-4 py-3 shadow-sm">
+            <div className="mb-1 font-display text-[12px] tracking-[0.2em] text-brand-orange uppercase">
+              协议来源
+            </div>
+            <div className="grid grid-cols-[1.3fr_auto_auto_2fr] items-center gap-3">
+              <div className="font-display text-[18px] font-semibold text-ink">
+                Model Context Protocol (MCP)
+              </div>
+              <div className="rounded-md bg-white/75 px-2.5 py-1 font-display text-[12px] font-semibold text-ink/80">
+                Anthropic
+              </div>
+              <div className="rounded-md bg-white/75 px-2.5 py-1 font-display text-[12px] font-semibold text-ink/70">
+                2024 年 11 月
+              </div>
+              <div className="font-serif text-[12px] text-ink/68">
+                标准化连接层：解决 AI 如何接入外部数据（如 GitHub、Slack、本地文件）的“插座”问题。
+              </div>
+            </div>
+          </div>
+        </Reveal>
 
-        {/* ══ 左列：问题 + 架构图 + 结论 ══ */}
-        <div className="flex flex-col gap-3">
+        <div className="grid flex-1 grid-cols-[1.15fr_1fr] gap-5">
+
+          {/* ══ 左列：问题 + 架构图 + 结论 ══ */}
+          <div className="flex flex-col gap-3">
 
           {/* Step 1 · 碎片化困局 */}
           <Reveal show={step >= 1} variant="rise">
@@ -182,10 +205,10 @@ export default function Slide20Ch81McpOverview() {
               IDE、Agent 平台、SaaS 工具正在加速跟进协议。
             </Callout>
           </Reveal>
-        </div>
+          </div>
 
-        {/* ══ 右列：三类能力 + 渐进式披露 + 工程三账本 ══ */}
-        <div className="flex flex-col gap-3">
+          {/* ══ 右列：三类能力 + 渐进式披露 + 工程三账本 ══ */}
+          <div className="flex flex-col gap-3">
 
           {/* Step 3 · 三类能力 */}
           <Reveal show={step >= 3} variant="slide-left">
@@ -272,6 +295,7 @@ export default function Slide20Ch81McpOverview() {
               </div>
             </div>
           </Reveal>
+          </div>
         </div>
       </div>
     </Slide>
